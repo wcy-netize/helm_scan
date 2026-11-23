@@ -1,8 +1,10 @@
 # Aikido Container Scan Test
 
-This chart deploys a single-replica NGINX workload from the public
-`nginx:1.27.5-alpine` image. The image is declared in `values.yaml` so a
-repository or Helm chart scanner can discover and scan it.
+This chart deploys NGINX (`nginx:1.27.5-alpine`) and two additional test
+workloads: Redis (`redis:7.2.4-alpine`) and Apache HTTP Server
+(`httpd:2.4.58-alpine`). The image versions are pinned in `values.yaml` so they
+can be bumped later for testing. The additional workloads are separate
+Deployments and do not have Services.
 
 Install the chart:
 
@@ -10,12 +12,12 @@ Install the chart:
 helm install aikido-test .
 ```
 
-Check the deployment and access the NGINX welcome page:
+Check the deployments and access the NGINX welcome page:
 
 ```sh
 kubectl get pods,service
 kubectl port-forward service/aikido-test-aikido-container-scan-test 8080:80
 ```
 
-Then open `http://localhost:8080`. Override the image with Helm's
-`--set image.repository=... --set image.tag=...` options if needed.
+Then open `http://localhost:8080`. To change an additional test image, edit its
+`repository` or `tag` under `testImages` in `values.yaml`.

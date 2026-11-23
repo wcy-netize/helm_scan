@@ -15,3 +15,13 @@ service:
   port: 80
 
 resources: {}
+
+testImages:
+  - name: redis
+    repository: redis
+    tag: "7.2.4-alpine"
+    containerPort: 6379
+  - name: httpd
+    repository: httpd
+    tag: "2.4.58-alpine"
+    containerPort: 80
