@@ -21,7 +21,4 @@ testImages:
     repository: redis
     tag: "7.2.5-alpine"
     containerPort: 6379
-  - name: httpd
-    repository: httpd
-    tag: "2.4.59-alpine"
-    containerPort: 80
+
