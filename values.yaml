@@ -1,0 +1,17 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: "1.27.5-alpine"
+
+nameOverride: ""
+fullnameOverride: ""
+
+containerPort: 80
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
