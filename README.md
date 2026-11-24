@@ -21,3 +21,27 @@ kubectl port-forward service/aikido-test-aikido-container-scan-test 8080:80
 
 Then open `http://localhost:8080`. To change an additional test image, edit its
 `repository` or `tag` under `testImages` in `values.yaml`.
+
+## Overlay examples
+
+The `overlays/` directory contains environment-specific values files.
+
+Install with the development overlay:
+
+```sh
+helm upgrade --install aikido-test . -f overlays/development.yaml
+```
+
+Install with the production overlay:
+
+```sh
+helm upgrade --install aikido-test . -f overlays/production.yaml
+```
+
+Overlay a test-image version change on the development values:
+
+```sh
+helm upgrade --install aikido-test . \
+  -f overlays/development.yaml \
+  -f overlays/test-images.yaml
+```

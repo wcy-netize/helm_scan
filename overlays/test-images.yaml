@@ -1,0 +1,12 @@
+# Test-image overlay
+testImages:
+  - name: redis
+    repository: redis
+    tag: "7.4.2-alpine"
+    pullPolicy: IfNotPresent
+    containerPort: 6379
+  - name: httpd
+    repository: httpd
+    tag: "2.4.63-alpine"
+    pullPolicy: IfNotPresent
+    containerPort: 80

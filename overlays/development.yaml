@@ -1,0 +1,17 @@
+# Development overlay
+replicaCount: 1
+
+image:
+  pullPolicy: Always
+
+service:
+  type: NodePort
+  port: 80
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 32Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
